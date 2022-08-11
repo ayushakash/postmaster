@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
 
+    
     if (req.body.method == "GET") {
         get();
     } else 
@@ -42,7 +43,7 @@ app.post("/", (req, res) => {
         fetch(req.body.url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': req.body.header
             },
             body: (req.body.base)
         })
@@ -61,7 +62,7 @@ app.post("/", (req, res) => {
 
 })
 
-app.listen(3005, () => {
+app.listen(3000, () => {
 
-    console.log("server running at port 3005");
+    console.log("server running at port 3000");
 })
